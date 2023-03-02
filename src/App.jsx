@@ -6,15 +6,19 @@ import Add from './pages/Add';
 import Update from './pages/Update';
 import NotFound from './pages/NotFound';
 
+import Layout from './components/Layout';
+
 function App() {
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<List />}/>
-        <Route path="/add" element={<Add />}/>
-        <Route path="/update" element={<Update />}/>
-        <Route path="*" element={<NotFound />}/>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<List />}/>
+          <Route path="/add" element={<Add />}/>
+          <Route path="/update" element={<Update />}/>
+          <Route path="*" element={<NotFound />}/>
+        </Route>
       </Routes>
     </Router>
   )
