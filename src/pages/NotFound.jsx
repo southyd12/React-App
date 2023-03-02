@@ -1,8 +1,12 @@
 import React from 'react'
+import TempHeader from '../components/TempHeader'
 
 function NotFound() {
   return (
-    <div>NotFound</div>
+    <>
+      <TempHeader />
+      <div>NotFound</div>
+    </>
   )
 }
 
