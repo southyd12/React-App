@@ -7,7 +7,6 @@ function Layout() {
   return (
     <>
       <header>
-        <h1>Cars App</h1>
         <TempHeader />
       </header>
       <main>
