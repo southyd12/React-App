@@ -1,9 +1,17 @@
 import React from 'react'
+import Typography from '@mui/material/Typography';
+import CarForm from '../components/forms/CarForm';
 
 function Add() {
   return (
     <>
-      <div>Add</div>
+      <Typography
+         variant="h2"
+         component="h1"      
+        >
+        Add Car              
+      </Typography>
+      <CarForm />
     </>
   );
 }
