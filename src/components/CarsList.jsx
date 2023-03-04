@@ -14,10 +14,11 @@ function CarsList({
   cars=[], 
   deleteHandler=() => console.log('No deleteHandler provided to Cars List')
 }) {
+  const reversedCars = [...cars].reverse();
   return (
     <List>
-        {cars.map(({ name, bhp, avatar_url, _id }, i) => (
-          <ListItem key={i}>
+        {reversedCars.map(({ name, bhp, avatar_url, _id }) => (
+          <ListItem key={_id}>
             <ListItemAvatar>
               <Avatar alt="" src={avatar_url} />
             </ListItemAvatar>
