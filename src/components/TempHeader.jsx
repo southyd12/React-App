@@ -22,6 +22,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import MobileNavigation from './MobileNavigation';
 import DesktopNavigation from './DesktopNavigation';
+import ErrorBoundary from "./debug/ErrorBoundary";
 
 function DrawerAppBar() {
 
@@ -42,13 +43,5 @@ function DrawerAppBar() {
     </Box>
   );
 }
-
-DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default DrawerAppBar;

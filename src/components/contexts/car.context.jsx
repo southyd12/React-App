@@ -1,5 +1,6 @@
-import React, { createContext, useState, useCallback } from "react";
+import React, { createContext, useState, useCallback, useContext } from "react";
 import { CARS_ENDPOINT, STORAGE_KEY } from "../../settings";
+import { UIContext } from "./UI.context";
 
 export const CarsContext = createContext({
   fetchCars: () => [],
@@ -13,6 +14,7 @@ export const CarsContext = createContext({
 });
 
 export const CarsProvider = ({children}) => {
+  const {showMessage} = useContext(UIContext);
   const [cars, setCars] = useState(() => {
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
   });
@@ -62,14 +64,9 @@ export const CarsProvider = ({children}) => {
       const newCars = [...cars, savedCar];
       localStorage.setItem(STORAGE_KEY, JSON.stringify(newCars));
       setCars(newCars);
-      // addToast(`Saved ${savedCar.name}`, {
-      //   appearance: "success",
-      // });
     } catch (err) {
       console.log(err);
-      // addToast(`Error ${err.message || err.statusText}`, {
-      //   appearance: "error",
-      // });
+      showMessage({type: 'error', string: "Error loading cars"})
     }
   }, [cars]);
 
